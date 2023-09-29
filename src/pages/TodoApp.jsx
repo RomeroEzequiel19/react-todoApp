@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { AddTodo } from "../components/AddTodo"
 import { TodoListItem } from "../components/TodoListItem"
 
 export const TodoApp = () => {
@@ -53,30 +54,14 @@ export const TodoApp = () => {
         {/* TodoAdd */}
         <div className="row mb-3">
           <div className="col-sm-12 col-md-4 mb-2 mb-md-3 mb-lg-0 ">
-          <h3>New Todo</h3>
+           <AddTodo
 
-          <input
-            type="text"
-            className="form-control border border-primary"
-            placeholder="Add Todo"
-            name="desc"
-            value={todo}
-            onChange={inputChange}
-
-            
-            //Cuando se levanta la tecla es cuando se dispara el evento
-            onKeyUpCapture={ ({key}) => {
-              if(key === 'Enter'){
-                setTodoList([
-                  ...todoList,
-                {
-                  id: new Date().getTime(),
-                  desc: todo,
-                  done: false
-                }])
-              }
-            }}
-          />
+           inputChange={inputChange}
+           setTodoList={setTodoList}
+           todo={todo}
+           todoList={todoList}
+           
+           />
           </div>
   
           {/* TodoList */}
